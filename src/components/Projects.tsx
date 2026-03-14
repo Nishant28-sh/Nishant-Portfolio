@@ -39,7 +39,7 @@ const projects = [
     title: 'Personal Portfolio',
     description: 'A modern and interactive portfolio website showcasing my projects, skills, and professional journey. Built with cutting-edge technologies including React, TypeScript, and Framer Motion for smooth animations. Features responsive design, custom cursor effects, and optimized performance.',
     image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1200&h=700&fit=crop',
-    github: 'https://github.com/Nishant28-sh/Nishant_Portfolio',
+    github: 'https://github.com/Nishant28-sh/Nishant-Portfolio',
     live: 'https://www.nishantsharmaa.in',
     featured: true,
     tech: ['React', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
