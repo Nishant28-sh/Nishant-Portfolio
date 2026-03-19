@@ -1,6 +1,17 @@
 {
   "redirects": [
     {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "nishant-portfolio-five.vercel.app"
+        }
+      ],
+      "destination": "https://www.nishantsharmaa.in/$1",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [
         {
