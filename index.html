@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script>
       (function () {
+        if (window.location.hostname.includes("vercel.app")) {
+          var existingRobots = document.querySelector('meta[name="robots"]');
+          if (!existingRobots) {
+            var robotsMeta = document.createElement("meta");
+            robotsMeta.name = "robots";
+            robotsMeta.content = "noindex, nofollow";
+            document.head.appendChild(robotsMeta);
+          }
+        }
+
         if (window.location.hostname === "nishantsharmaa.in") {
           var target =
             "https://www.nishantsharmaa.in" +
@@ -20,7 +30,7 @@
     <meta name="author" content="Nishant Sharma" />
     <meta name="theme-color" content="#0f172a" />
     <meta name="application-name" content="Nishant Sharma Portfolio" />
-    <link rel="canonical" href="https://www.nishantsharmaa.in" />
+    <link rel="canonical" href="https://www.nishantsharmaa.in/" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
