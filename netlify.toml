@@ -1,0 +1,10 @@
+[[redirects]]
+  from = "https://nishantsharmaa.in/*"
+  to = "https://www.nishantsharmaa.in/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
