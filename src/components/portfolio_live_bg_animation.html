@@ -1,0 +1,197 @@
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+#bg{width:100%;height:500px;background:#0a0a14;position:relative;overflow:hidden;border-radius:12px}
+canvas{position:absolute;top:0;left:0;width:100%;height:100%}
+#overlay{position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none}
+#name{font-family:system-ui,sans-serif;font-size:38px;font-weight:300;color:#fff;letter-spacing:6px;opacity:0;animation:fadein 2s ease 0.5s forwards}
+#role{font-family:system-ui,sans-serif;font-size:13px;font-weight:400;color:rgba(255,255,255,0.45);letter-spacing:4px;margin-top:10px;opacity:0;animation:fadein 2s ease 1.2s forwards}
+#controls{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;gap:10px}
+.btn{background:rgba(255,255,255,0.08);border:0.5px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.6);font-size:11px;padding:5px 14px;border-radius:20px;cursor:pointer;transition:all 0.2s;font-family:system-ui,sans-serif;letter-spacing:1px}
+.btn:hover{background:rgba(255,255,255,0.15);color:#fff}
+.btn.active{background:rgba(99,120,255,0.3);border-color:rgba(99,120,255,0.6);color:#a0a8ff}
+@keyframes fadein{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+</style>
+<div id="bg">
+  <canvas id="c"></canvas>
+  <div id="overlay">
+    <div id="name">NISHANT SHARMA</div>
+    <div id="role">FULL STACK DEVELOPER</div>
+  </div>
+  <div id="controls">
+    <button class="btn active" onclick="setMode('network')">Network</button>
+    <button class="btn" onclick="setMode('stars')">Stars</button>
+    <button class="btn" onclick="setMode('waves')">Waves</button>
+  </div>
+</div>
+<script>
+const canvas=document.getElementById('c');
+const ctx=canvas.getContext('2d');
+const bg=document.getElementById('bg');
+let W,H,mode='network',animId,mouse={x:-999,y:-999};
+
+function resize(){
+  W=canvas.width=bg.offsetWidth;
+  H=canvas.height=bg.offsetHeight;
+  init();
+}
+
+let particles=[];
+
+const palettes={
+  network:['#6378ff','#a78bfa','#38bdf8','#818cf8'],
+  stars:['#fff','#e0e7ff','#bfdbfe','#fde68a'],
+  waves:['#0ea5e9','#6366f1','#a855f7','#ec4899']
+};
+
+function randColor(m){const p=palettes[m];return p[Math.floor(Math.random()*p.length)]}
+
+function init(){
+  particles=[];
+  if(mode==='network'){
+    for(let i=0;i<80;i++){
+      particles.push({
+        x:Math.random()*W,y:Math.random()*H,
+        vx:(Math.random()-0.5)*0.5,vy:(Math.random()-0.5)*0.5,
+        r:Math.random()*2+1,
+        color:randColor('network'),
+        alpha:Math.random()*0.6+0.3
+      });
+    }
+  } else if(mode==='stars'){
+    for(let i=0;i<160;i++){
+      particles.push({
+        x:Math.random()*W,y:Math.random()*H,
+        r:Math.random()*1.8+0.3,
+        twinkle:Math.random()*Math.PI*2,
+        speed:Math.random()*0.02+0.005,
+        vy:Math.random()*0.15+0.05,
+        color:randColor('stars')
+      });
+    }
+  } else if(mode==='waves'){
+    particles=[];
+  }
+}
+
+function drawNetwork(){
+  ctx.clearRect(0,0,W,H);
+  particles.forEach(p=>{
+    p.x+=p.vx; p.y+=p.vy;
+    if(p.x<0||p.x>W)p.vx*=-1;
+    if(p.y<0||p.y>H)p.vy*=-1;
+    const dx=p.x-mouse.x,dy=p.y-mouse.y;
+    const dist=Math.sqrt(dx*dx+dy*dy);
+    if(dist<100){p.x+=dx*0.02;p.y+=dy*0.02;}
+    ctx.beginPath();
+    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fillStyle=p.color;
+    ctx.globalAlpha=p.alpha;
+    ctx.fill();
+    ctx.globalAlpha=1;
+  });
+  for(let i=0;i<particles.length;i++){
+    for(let j=i+1;j<particles.length;j++){
+      const a=particles[i],b=particles[j];
+      const dx=a.x-b.x,dy=a.y-b.y;
+      const d=Math.sqrt(dx*dx+dy*dy);
+      if(d<130){
+        ctx.beginPath();
+        ctx.moveTo(a.x,a.y);
+        ctx.lineTo(b.x,b.y);
+        ctx.strokeStyle=a.color;
+        ctx.globalAlpha=(1-d/130)*0.25;
+        ctx.lineWidth=0.6;
+        ctx.stroke();
+        ctx.globalAlpha=1;
+      }
+    }
+  }
+}
+
+function drawStars(t){
+  ctx.clearRect(0,0,W,H);
+  particles.forEach(p=>{
+    p.twinkle+=p.speed;
+    p.y+=p.vy;
+    if(p.y>H)p.y=0;
+    const alpha=0.3+0.7*Math.abs(Math.sin(p.twinkle));
+    ctx.beginPath();
+    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fillStyle=p.color;
+    ctx.globalAlpha=alpha;
+    ctx.fill();
+    ctx.globalAlpha=1;
+    if(p.r>1.2){
+      ctx.beginPath();
+      ctx.moveTo(p.x-p.r*3,p.y);ctx.lineTo(p.x+p.r*3,p.y);
+      ctx.moveTo(p.x,p.y-p.r*3);ctx.lineTo(p.x,p.y+p.r*3);
+      ctx.strokeStyle=p.color;
+      ctx.globalAlpha=alpha*0.3;
+      ctx.lineWidth=0.5;
+      ctx.stroke();
+      ctx.globalAlpha=1;
+    }
+  });
+}
+
+let wt=0;
+function drawWaves(){
+  ctx.clearRect(0,0,W,H);
+  wt+=0.008;
+  const cols=['rgba(99,102,241,','rgba(139,92,246,','rgba(59,130,246,','rgba(236,72,153,'];
+  for(let w=0;w<4;w++){
+    const amp=30+w*10;
+    const freq=0.008+w*0.003;
+    const yBase=H*0.35+w*55;
+    const phase=wt+w*1.1;
+    const alpha=0.12+w*0.04;
+    ctx.beginPath();
+    ctx.moveTo(0,H);
+    for(let x=0;x<=W;x+=3){
+      const y=yBase+amp*Math.sin(x*freq+phase)+15*Math.sin(x*freq*2.3+phase*1.7);
+      ctx.lineTo(x,y);
+    }
+    ctx.lineTo(W,H);ctx.closePath();
+    ctx.fillStyle=cols[w]+(alpha)+')';
+    ctx.fill();
+    ctx.beginPath();
+    for(let x=0;x<=W;x+=3){
+      const y=yBase+amp*Math.sin(x*freq+phase)+15*Math.sin(x*freq*2.3+phase*1.7);
+      x===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
+    }
+    ctx.strokeStyle=cols[w]+'0.5)';
+    ctx.lineWidth=1.2;
+    ctx.stroke();
+  }
+}
+
+let t=0;
+function loop(){
+  t++;
+  if(mode==='network')drawNetwork();
+  else if(mode==='stars')drawStars(t);
+  else if(mode==='waves')drawWaves();
+  animId=requestAnimationFrame(loop);
+}
+
+function setMode(m){
+  mode=m;
+  document.querySelectorAll('.btn').forEach(b=>b.classList.remove('active'));
+  event.target.classList.add('active');
+  cancelAnimationFrame(animId);
+  init();
+  loop();
+}
+
+bg.addEventListener('mousemove',e=>{
+  const r=bg.getBoundingClientRect();
+  mouse.x=e.clientX-r.left;
+  mouse.y=e.clientY-r.top;
+});
+bg.addEventListener('mouseleave',()=>{mouse.x=-999;mouse.y=-999;});
+
+window.addEventListener('resize',()=>{cancelAnimationFrame(animId);resize();loop();});
+resize();
+loop();
+</script>
