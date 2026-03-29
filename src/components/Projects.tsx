@@ -62,7 +62,7 @@ const Projects = () => {
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
 
   return (
-    <section id="projects" className="py-32 px-6 bg-background overflow-hidden relative" ref={containerRef}>
+    <section id="projects" className="py-32 px-6 overflow-hidden relative" ref={containerRef}>
       {/* Animated background diagonal stripe */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-b from-amber-500/5 via-transparent to-transparent transform -skew-y-12" />

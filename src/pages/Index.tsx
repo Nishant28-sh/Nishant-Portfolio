@@ -7,22 +7,26 @@ import Projects from '@/components/Projects';
 import Achievements from '@/components/Achievements';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
+import PageBackground from '@/components/PageBackground';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <a className="skip-link" href="#main-content">Skip to main content</a>
-      <Header />
-      <main id="main-content">
-        <Hero />
-        <About />
-        <Experience />
-        <Skills />
-        <Projects />
-        <Achievements />
-        <Contact />
-      </main>
-      <Footer />
+    <div className="relative min-h-screen bg-black">
+      <PageBackground />
+      <div className="relative z-10">
+        <a className="skip-link" href="#main-content">Skip to main content</a>
+        <Header />
+        <main id="main-content">
+          <Hero />
+          <About />
+          <Experience />
+          <Skills />
+          <Projects />
+          <Achievements />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
     </div>
   );
 };

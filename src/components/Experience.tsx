@@ -39,7 +39,7 @@ const Experience = () => {
   const y = useTransform(scrollYProgress, [0, 0.2], [80, 0]);
 
   return (
-    <section id="experience" className="py-24 px-6 bg-gradient-to-b from-background/50 to-background overflow-hidden" ref={containerRef}>
+    <section id="experience" className="py-24 px-6 overflow-hidden" ref={containerRef}>
       <motion.div 
         style={{ opacity, y }}
         className="max-w-6xl mx-auto"

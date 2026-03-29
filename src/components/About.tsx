@@ -15,7 +15,7 @@ const About = () => {
   const textX = useTransform(scrollYProgress, [0, 0.3], [100, 0]);
 
   return (
-    <section id="about" className="py-24 px-6 overflow-hidden bg-gradient-to-b from-background/50 to-background" ref={containerRef}>
+    <section id="about" className="py-24 px-6 overflow-hidden" ref={containerRef}>
       <motion.div 
         style={{ opacity }}
         className="max-w-7xl mx-auto"

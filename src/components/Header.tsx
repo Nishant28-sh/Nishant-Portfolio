@@ -14,7 +14,7 @@ const Header = () => {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6 }}
-      className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md shadow-lg"
+      className="fixed top-0 left-0 right-0 z-50 bg-black/55 backdrop-blur-xl border-b border-white/5 shadow-[0_10px_40px_rgba(0,0,0,0.35)]"
     >
       <div className="max-w-7xl mx-auto px-3 md:px-12 py-3 md:py-4 flex items-center justify-between">
         {/* Social Links - Left */}

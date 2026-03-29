@@ -16,7 +16,7 @@ const Hero = () => {
       </p>
       {/* =========================================================================== */}
       {/* Animated Circular Borders - Main Feature */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none flex items-center justify-center">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none flex items-center justify-center z-10">
         {/* Outer rotating circle - Large */}
         <motion.div 
           animate={{ rotate: 360 }}
@@ -65,7 +65,7 @@ const Hero = () => {
         </motion.div>
       </div>
 
-      <div className="relative z-10 flex flex-col items-center justify-center">
+      <div className="relative z-20 flex flex-col items-center justify-center">
         {/* Software Engineer Label */}
         <motion.p 
           initial={{ opacity: 0, y: -20 }}
@@ -147,7 +147,7 @@ const Hero = () => {
       <motion.div 
         animate={{ y: [0, 8, 0] }}
         transition={{ repeat: Infinity, duration: 2.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20"
       >
         <motion.button
           onClick={() => {
