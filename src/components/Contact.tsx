@@ -12,7 +12,7 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const mailtoLink = `mailto:ns87086sh@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`)}`;
+    const mailtoLink = `mailto:nishantsharma9550@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`)}`;
     window.location.href = mailtoLink;
     setFormData({ name: '', email: '', subject: '', message: '' });
   };
@@ -41,8 +41,8 @@ const Contact = () => {
     {
       icon: FaEnvelope,
       label: 'Email',
-      value: 'ns87086sh@gmail.com',
-      href: 'mailto:ns87086sh@gmail.com',
+      value: 'nishantsharma9550@gmail.com',
+      href: 'mailto:nishantsharma9550@gmail.com',
       color: '#FF6B6B'
     },
     {
