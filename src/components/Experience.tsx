@@ -76,7 +76,7 @@ const Experience = () => {
               whileHover={{ y: -8 }}
               className="group"
             >
-              <div className="relative bg-secondary/50 p-8 rounded-2xl border border-primary/10 hover:border-primary/30 transition-all duration-300 h-full backdrop-blur-sm shadow-lg hover:shadow-xl overflow-hidden">
+              <div className="relative bg-secondary/50 p-8 rounded-2xl border border-primary/10 hover:border-primary/30 transition-all duration-300 h-full backdrop-blur-sm shadow-lg hover:shadow-2xl overflow-hidden hover-lift hover-glow">
                 {/* Background glow effect */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
@@ -84,17 +84,33 @@ const Experience = () => {
                 <motion.div 
                   initial={{ scale: 0.8 }}
                   whileInView={{ scale: 1 }}
+                  whileHover={{ scale: 1.2, rotate: 15, y: -3 }}
                   viewport={{ once: true }}
-                  className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center mb-6 relative z-10"
+                  className="w-12 h-12 rounded-lg bg-amber-400/20 flex items-center justify-center mb-6 relative z-10 transition-all group-hover:bg-amber-400/30 icon-hover"
                 >
-                  <FaBriefcase className="text-primary text-lg" />
+                  <FaBriefcase className="text-amber-400 text-lg" />
                 </motion.div>
                 
                 {/* Content */}
                 <div className="relative z-10">
-                  <h3 className="text-2xl font-bold text-foreground mb-1">{exp.title}</h3>
-                  <p className="text-primary font-semibold mb-1">{exp.company}</p>
-                  <p className="text-muted-foreground text-sm mb-6">{exp.date}</p>
+                  <motion.h3 
+                    whileHover={{ x: 5, color: '#fbbf24' }}
+                    className="text-2xl font-bold text-foreground mb-1 transition-all duration-300 text-hover-underline"
+                  >
+                    {exp.title}
+                  </motion.h3>
+                  <motion.p 
+                    whileHover={{ color: '#fbbf24', x: 3 }}
+                    className="text-amber-400 font-semibold mb-1 transition-all cursor-default"
+                  >
+                    {exp.company}
+                  </motion.p>
+                  <motion.p 
+                    whileHover={{ color: '#d1d5db' }}
+                    className="text-muted-foreground text-sm mb-6 transition-colors duration-300"
+                  >
+                    {exp.date}
+                  </motion.p>
                   
                   {/* Experience Points */}
                   <ul className="space-y-3 mb-8">
@@ -103,11 +119,15 @@ const Experience = () => {
                         key={i} 
                         initial={{ opacity: 0, x: -15 }}
                         whileInView={{ opacity: 1, x: 0 }}
+                        whileHover={{ x: 5, color: '#fbbf24' }}
                         transition={{ delay: 0.2 + i * 0.1 }}
                         viewport={{ once: true }}
-                        className="text-muted-foreground text-sm leading-relaxed flex items-start gap-3"
+                        className="text-muted-foreground text-sm leading-relaxed flex items-start gap-3 transition-all duration-300 hover:text-amber-400 group/item"
                       >
-                        <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                        <motion.span 
+                          whileHover={{ scale: 1.3, y: -2 }}
+                          className="w-1.5 h-1.5 rounded-full bg-amber-400 mt-2 flex-shrink-0 transition-all"
+                        />
                         {point}
                       </motion.li>
                     ))}
@@ -120,10 +140,10 @@ const Experience = () => {
                         key={i} 
                         initial={{ opacity: 0, scale: 0.8 }}
                         whileInView={{ opacity: 1, scale: 1 }}
+                        whileHover={{ scale: 1.15, y: -4, rotate: 5 }}
                         transition={{ delay: 0.4 + i * 0.05 }}
                         viewport={{ once: true }}
-                        whileHover={{ scale: 1.05 }}
-                        className="px-3 py-1 bg-primary/10 border border-primary/20 rounded-full text-xs text-muted-foreground hover:text-primary hover:border-primary/50 transition-all cursor-default font-medium"
+                        className="px-3 py-1 bg-amber-400/15 border border-amber-400/40 rounded-full text-xs text-amber-400 font-medium uppercase tracking-wider transition-all cursor-default badge-hover hover:bg-amber-400/30 hover:border-amber-400/80"
                       >
                         {skill}
                       </motion.span>
@@ -140,12 +160,16 @@ const Experience = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
+          whileHover={{ scale: 1.02, y: -3 }}
           viewport={{ once: true }}
-          className="bg-secondary/30 p-8 rounded-xl border border-primary/10 text-center"
+          className="bg-secondary/30 p-8 rounded-xl border border-amber-400/30 text-center hover-lift hover-glow transition-all"
         >
-          <p className="text-muted-foreground">
+          <motion.p 
+            whileHover={{ color: '#fbbf24' }}
+            className="text-muted-foreground hover:text-amber-400 transition-colors duration-300 font-medium text-lg"
+          >
             Passionate about learning and contributing to innovative projects that make a meaningful difference
-          </p>
+          </motion.p>
         </motion.div>
       </motion.div>
     </section>

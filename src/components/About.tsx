@@ -83,12 +83,39 @@ const About = () => {
               viewport={{ once: true }}
               className="space-y-6"
             >
-              <p className="text-gray-300 leading-relaxed text-base md:text-lg">
-                I'm <span className="text-amber-400 font-semibold">Nishant Sharma</span>, a pre final-year <span className="text-amber-400 font-semibold">B.Tech Computer Science and Engineering</span> student at <span className="text-amber-400 font-semibold">KR Mangalam University, Haryana</span>, with a strong academic background and hands-on project experience.
+              <p className="text-gray-300 leading-relaxed text-base md:text-lg hover:text-gray-100 transition-colors duration-300">
+                I'm <motion.span 
+                  whileHover={{ scale: 1.05, color: '#fbbf24' }}
+                  className="text-amber-400 font-semibold inline-block transition-all cursor-default"
+                >Nishant Sharma</motion.span>, a pre final-year <motion.span 
+                  whileHover={{ scale: 1.05, color: '#fbbf24' }}
+                  className="text-amber-400 font-semibold inline-block transition-all cursor-default"
+                >B.Tech Computer Science and Engineering</motion.span> student at <motion.span 
+                  whileHover={{ scale: 1.05, color: '#fbbf24' }}
+                  className="text-amber-400 font-semibold inline-block transition-all cursor-default"
+                >KR Mangalam University, Haryana</motion.span>, with a strong academic background and hands-on project experience.
               </p>
 
-              <p className="text-gray-300 leading-relaxed text-base md:text-lg">
-                I am a <span className="text-amber-400 font-semibold">Full Stack Developer</span> experienced in building scalable web applications using <span className="text-amber-400 font-semibold">React.js</span>, <span className="text-amber-400 font-semibold">Node.js</span>, and <span className="text-amber-400 font-semibold">Spring Boot</span>. I have worked on real-world projects involving RESTful APIs, real-time features using Socket.io, secure authentication, database integration, and cloud deployment on platforms like <span className="text-amber-400 font-semibold">Vercel</span> and <span className="text-amber-400 font-semibold">Render</span>.
+              <p className="text-gray-300 leading-relaxed text-base md:text-lg hover:text-gray-100 transition-colors duration-300">
+                I am a <motion.span 
+                  whileHover={{ scale: 1.05, color: '#fbbf24' }}
+                  className="text-amber-400 font-semibold inline-block transition-all cursor-default"
+                >Full Stack Developer</motion.span> experienced in building scalable web applications using <motion.span 
+                  whileHover={{ scale: 1.05, color: '#fbbf24' }}
+                  className="text-amber-400 font-semibold inline-block transition-all cursor-default"
+                >React.js</motion.span>, <motion.span 
+                  whileHover={{ scale: 1.05, color: '#fbbf24' }}
+                  className="text-amber-400 font-semibold inline-block transition-all cursor-default"
+                >Node.js</motion.span>, and <motion.span 
+                  whileHover={{ scale: 1.05, color: '#fbbf24' }}
+                  className="text-amber-400 font-semibold inline-block transition-all cursor-default"
+                >Spring Boot</motion.span>. I have worked on real-world projects involving RESTful APIs, real-time features using Socket.io, secure authentication, database integration, and cloud deployment on platforms like <motion.span 
+                  whileHover={{ scale: 1.05, color: '#fbbf24' }}
+                  className="text-amber-400 font-semibold inline-block transition-all cursor-default"
+                >Vercel</motion.span> and <motion.span 
+                  whileHover={{ scale: 1.05, color: '#fbbf24' }}
+                  className="text-amber-400 font-semibold inline-block transition-all cursor-default"
+                >Render</motion.span>.
               </p>
 
               <p className="text-gray-300 leading-relaxed text-base md:text-lg">

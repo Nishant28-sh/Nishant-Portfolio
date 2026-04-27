@@ -10,7 +10,7 @@ const Footer = () => {
     { icon: FaLinkedin, href: 'https://linkedin.com/in/nishant-sharma-24b089285', label: 'LinkedIn' },
     { icon: FaGithub, href: 'https://github.com/Nishant28-sh', label: 'GitHub' },
     { icon: FaTwitter, href: 'https://x.com/er_Nishant_sh', label: 'Twitter' },
-    { icon: FaEnvelope, href: 'mailto:ns87086sh@gmail.com', label: 'Email' },
+    { icon: FaEnvelope, href: 'mailto:nishant.dev.tech@gmail.com', label: 'Email' },
   ];
 
   const currentYear = new Date().getFullYear();
@@ -47,13 +47,14 @@ const Footer = () => {
             </h4>
             <div className="space-y-2">
               {['About', 'Experience', 'Skills', 'Projects', 'Contact'].map((link) => (
-                <a
+                <motion.a
                   key={link}
                   href={`#${link.toLowerCase()}`}
-                  className="block text-gray-400 hover:text-amber-400 transition-colors text-sm"
+                  whileHover={{ x: 5, color: '#fbbf24' }}
+                  className="block text-gray-400 hover:text-amber-400 transition-all text-sm text-hover-underline"
                 >
                   {link}
-                </a>
+                </motion.a>
               ))}
             </div>
           </motion.div>
@@ -69,23 +70,23 @@ const Footer = () => {
             <h4 className="text-sm font-semibold text-white uppercase tracking-widest mb-4">
               Connect
             </h4>
-            <div className="flex justify-center md:justify-end gap-4">
+            <motion.div className="flex justify-center md:justify-end gap-4">
               {socialLinks.map((social) => (
                 <motion.a
                   key={social.label}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  whileHover={{ scale: 1.2, y: -3 }}
-                  whileTap={{ scale: 0.9 }}
-                  className="w-10 h-10 rounded-full flex items-center justify-center bg-amber-400/10 text-gray-400 hover:bg-amber-400 hover:text-black transition-all"
+                  whileHover={{ scale: 1.25, y: -5, rotate: 10 }}
+                  whileTap={{ scale: 0.85 }}
+                  className="w-10 h-10 rounded-full flex items-center justify-center bg-amber-400/10 text-gray-400 hover:bg-amber-400 hover:text-black transition-all hover-glow"
                   aria-label={social.label}
                   title={social.label}
                 >
                   <social.icon size={18} />
                 </motion.a>
               ))}
-            </div>
+            </motion.div>
           </motion.div>
         </div>
 
@@ -118,6 +119,9 @@ const Footer = () => {
           {/* Scroll to Top Button */}
           <motion.button
             onClick={scrollToTop}
+            whileHover={{ scale: 1.1, y: -3 }}
+            whileTap={{ scale: 0.9 }}
+            className="w-10 h-10 rounded-full bg-amber-400 text-black flex items-center justify-center hover:shadow-lg hover:shadow-amber-400/50 transition-all hover-glow"
             whileHover={{ scale: 1.1, y: -3 }}
             whileTap={{ scale: 0.9 }}
             className="w-12 h-12 rounded-full bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-gray-400 hover:bg-amber-400 hover:text-black transition-all"

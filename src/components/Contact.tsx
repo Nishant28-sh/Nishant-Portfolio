@@ -12,7 +12,7 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const mailtoLink = `mailto:nishantsharma9550@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`)}`;
+    const mailtoLink = `mailto:nishant.dev.tech@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`)}`;
     window.location.href = mailtoLink;
     setFormData({ name: '', email: '', subject: '', message: '' });
   };
@@ -41,8 +41,8 @@ const Contact = () => {
     {
       icon: FaEnvelope,
       label: 'Email',
-      value: 'nishantsharma9550@gmail.com',
-      href: 'mailto:nishantsharma9550@gmail.com',
+      value: 'nishant.dev.tech@gmail.com',
+      href: 'mailto:nishant.dev.tech@gmail.com',
       color: '#FF6B6B'
     },
     {
@@ -128,24 +128,24 @@ const Contact = () => {
                 key={info.label}
                 variants={itemVariants}
                 href={info.href}
-                whileHover={{ x: 5 }}
-                className="flex items-start gap-4 p-4 rounded-xl hover:bg-secondary/50 transition-all group"
+                whileHover={{ x: 8, y: -2 }}
+                className="flex items-start gap-4 p-4 rounded-xl hover:bg-secondary/50 transition-all group hover-lift hover-border-glow border border-transparent"
               >
                 <motion.div 
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0"
+                  whileHover={{ scale: 1.15, rotate: -5 }}
+                  className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0 transition-all"
                   style={{
                     background: `${info.color}20`,
                     border: `2px solid ${info.color}40`
                   }}
                 >
-                  <info.icon className="text-xl" style={{ color: info.color }} />
+                  <info.icon className="text-xl group-hover:scale-125 transition-transform duration-300" style={{ color: info.color }} />
                 </motion.div>
                 <div>
                   <p className="text-muted-foreground text-sm font-semibold uppercase tracking-wider mb-1">
                     {info.label}
                   </p>
-                  <p className="text-foreground font-medium group-hover:text-primary transition-colors">
+                  <p className="text-foreground font-medium group-hover:text-amber-400 transition-colors duration-300">
                     {info.value}
                   </p>
                 </div>
@@ -167,9 +167,9 @@ const Contact = () => {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    whileHover={{ scale: 1.1, y: -3 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="w-12 h-12 rounded-lg flex items-center justify-center transition-all"
+                    whileHover={{ scale: 1.2, y: -5, rotate: 10 }}
+                    whileTap={{ scale: 0.9 }}
+                    className="w-12 h-12 rounded-lg flex items-center justify-center transition-all hover-glow border border-opacity-60 hover:border-opacity-100"
                     style={{
                       background: `${social.color}15`,
                       border: `2px solid ${social.color}40`,
@@ -177,7 +177,7 @@ const Contact = () => {
                     aria-label={social.label}
                     title={social.label}
                   >
-                    <social.icon className="text-lg" style={{ color: social.color }} />
+                    <social.icon className="text-lg transition-transform duration-300" style={{ color: social.color }} />
                   </motion.a>
                 ))}
               </div>

@@ -84,8 +84,8 @@ const Hero = () => {
           className="mb-8"
         >
           <motion.div 
-            whileHover={{ scale: 1.05 }}
-            className="w-40 h-40 rounded-full overflow-hidden border-4 border-amber-400/50 shadow-2xl shadow-amber-400/20 relative group"
+            whileHover={{ scale: 1.08, y: -3 }}
+            className="w-40 h-40 rounded-full overflow-hidden border-4 border-amber-400/50 shadow-2xl shadow-amber-400/20 relative group hover-glow"
           >
             <img 
               src="/profile image.jpg" 
@@ -133,9 +133,10 @@ const Hero = () => {
             <motion.a
               key={item}
               href={`#${item.toLowerCase()}`}
-              whileHover={{ color: '#fbbf24', scale: 1.1 }}
+              whileHover={{ color: '#fbbf24', scale: 1.15, y: -3 }}
+              whileTap={{ scale: 0.9 }}
               transition={{ type: 'spring', stiffness: 400 }}
-              className="transition-colors duration-300 cursor-pointer hover:text-amber-400"
+              className="transition-all duration-300 cursor-pointer hover:text-amber-400 relative text-hover-underline"
             >
               {item}
             </motion.a>

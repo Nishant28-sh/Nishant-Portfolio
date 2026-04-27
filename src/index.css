@@ -148,6 +148,73 @@
   .card-hover {
     @apply transition-all duration-300 hover:scale-105 hover:shadow-xl;
   }
+
+  /* Enhanced Hover Effects */
+  .hover-lift {
+    @apply transition-all duration-300 hover:translate-y-[-8px] hover:shadow-2xl;
+  }
+
+  .hover-glow {
+    @apply transition-all duration-300 hover:shadow-[0_0_30px_rgba(251,191,36,0.3)];
+  }
+
+  .hover-border-glow {
+    @apply transition-all duration-300 hover:border-amber-400 hover:shadow-[0_0_20px_rgba(251,191,36,0.2)];
+  }
+
+  .text-hover-underline {
+    @apply relative transition-all duration-300 after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-amber-400 after:transition-all after:duration-300 hover:after:w-full;
+  }
+
+  .hover-scale-text {
+    @apply transition-all duration-300 hover:scale-110 hover:text-amber-400;
+  }
+
+  .icon-hover {
+    @apply transition-all duration-300 hover:scale-125 hover:rotate-12 hover:text-amber-400;
+  }
+
+  .badge-hover {
+    @apply transition-all duration-300 hover:scale-110 hover:bg-amber-400/30 hover:border-amber-400/80 hover:-translate-y-1;
+  }
+
+  .link-hover-effect {
+    @apply relative inline-block transition-all duration-300 hover:text-amber-400;
+  }
+
+  /* Smooth Color Transitions */
+  .smooth-color-transition {
+    @apply transition-colors duration-500;
+  }
+
+  /* Enhanced Animations */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .float-animation {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+
+  .shimmer-effect {
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%);
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite;
+  }
 }
 
 @layer utilities {

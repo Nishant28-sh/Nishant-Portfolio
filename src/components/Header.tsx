@@ -22,12 +22,13 @@ const Header = () => {
           {socialLinks.map((social) => (
             <motion.a 
               key={social.label}
-              whileHover={{ scale: 1.15, color: '#fbbf24' }}
+              whileHover={{ scale: 1.25, rotate: 10, y: -3 }}
+              whileTap={{ scale: 0.85 }}
               href={social.href} 
               target="_blank" 
               rel="noopener noreferrer"
               aria-label={social.label}
-              className="text-gray-400 hover:text-amber-400 transition-colors duration-300"
+              className="text-gray-400 hover:text-amber-400 transition-all duration-300 icon-hover"
               title={social.label}
             >
               <social.icon className="w-[18px] h-[18px] md:w-5 md:h-5" />
@@ -38,22 +39,22 @@ const Header = () => {
         {/* Right Section - Resume & Contact */}
         <div className="flex items-center gap-2 md:gap-6">
           <motion.a 
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            whileHover={{ scale: 1.08, y: -2 }}
+            whileTap={{ scale: 0.92 }}
             href="/Nishant Sharma Software Developer Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1 md:gap-2 text-gray-400 hover:text-amber-400 transition-colors duration-300 text-[10px] md:text-sm font-medium uppercase tracking-wider md:tracking-widest"
+            className="flex items-center gap-1 md:gap-2 text-gray-400 hover:text-amber-400 transition-all duration-300 text-[10px] md:text-sm font-medium uppercase tracking-wider md:tracking-widest hover-lift"
           >
             <FaFileDownload className="w-3 h-3 md:w-4 md:h-4" />
             Resume
           </motion.a>
 
           <motion.a 
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            whileHover={{ scale: 1.08, y: -2 }}
+            whileTap={{ scale: 0.92 }}
             href="#contact"
-            className="text-gray-400 hover:text-amber-400 transition-colors duration-300 text-[10px] md:text-sm font-medium uppercase tracking-wider md:tracking-widest whitespace-nowrap"
+            className="text-gray-400 hover:text-amber-400 transition-all duration-300 text-[10px] md:text-sm font-medium uppercase tracking-wider md:tracking-widest whitespace-nowrap hover-lift"
           >
             Get In Touch
           </motion.a>

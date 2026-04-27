@@ -135,24 +135,24 @@ const Projects = () => {
                       className="absolute inset-0 flex items-center justify-center gap-8 bg-black/50 backdrop-blur-sm"
                     >
                       <motion.a 
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.95 }}
+                        whileHover={{ scale: 1.15, rotate: -5, y: -5 }}
+                        whileTap={{ scale: 0.9 }}
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={`View ${project.title} on GitHub`}
-                        className="w-20 h-20 bg-amber-400 hover:bg-amber-300 text-black rounded-full flex items-center justify-center transition-all shadow-2xl font-bold"
+                        className="w-20 h-20 bg-amber-400 hover:bg-amber-300 text-black rounded-full flex items-center justify-center transition-all shadow-2xl font-bold hover-glow"
                       >
                         <FaGithub size={32} />
                       </motion.a>
                       <motion.a 
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.95 }}
+                        whileHover={{ scale: 1.15, rotate: 5, y: -5 }}
+                        whileTap={{ scale: 0.9 }}
                         href={project.live}
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={`Open ${project.title} live site`}
-                        className="w-20 h-20 bg-amber-400 hover:bg-amber-300 text-black rounded-full flex items-center justify-center transition-all shadow-2xl font-bold"
+                        className="w-20 h-20 bg-amber-400 hover:bg-amber-300 text-black rounded-full flex items-center justify-center transition-all shadow-2xl font-bold hover-glow"
                       >
                         <FaExternalLinkAlt size={28} />
                       </motion.a>
@@ -205,8 +205,8 @@ const Projects = () => {
                     {project.tech.map((tech, i) => (
                       <motion.span 
                         key={i}
-                        whileHover={{ scale: 1.1, y: -3 }}
-                        className="px-5 py-2.5 bg-amber-400/15 border border-amber-400/40 text-amber-400 rounded-lg text-sm font-semibold uppercase tracking-wider hover:bg-amber-400/25 hover:border-amber-400/60 transition-all cursor-default"
+                        whileHover={{ scale: 1.15, y: -4 }}
+                        className="px-5 py-2.5 bg-amber-400/15 border border-amber-400/40 text-amber-400 rounded-lg text-sm font-semibold uppercase tracking-wider hover:bg-amber-400/30 hover:border-amber-400/80 transition-all cursor-default badge-hover"
                       >
                         {tech}
                       </motion.span>
@@ -265,12 +265,16 @@ const Projects = () => {
         >
           <motion.a
             href="#contact"
-            whileHover={{ scale: 1.08, backgroundColor: 'rgba(251, 191, 36, 0.2)' }}
-            whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-3 px-10 py-4 bg-amber-400/10 border-2 border-amber-400/60 text-amber-400 rounded-xl font-bold uppercase tracking-[0.2em] text-base hover:border-amber-400 transition-all"
+            whileHover={{ scale: 1.12, backgroundColor: 'rgba(251, 191, 36, 0.3)' }}
+            whileTap={{ scale: 0.92 }}
+            className="inline-flex items-center gap-3 px-10 py-4 bg-amber-400/10 border-2 border-amber-400/60 text-amber-400 rounded-xl font-bold uppercase tracking-[0.2em] text-base hover:border-amber-400 transition-all hover-lift hover-glow"
           >
             Want to see more?
-            <span className="text-2xl">→</span>
+            <motion.span 
+              animate={{ x: [0, 5, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+              className="text-2xl"
+            >→</motion.span>
           </motion.a>
         </motion.div>
       </motion.div>

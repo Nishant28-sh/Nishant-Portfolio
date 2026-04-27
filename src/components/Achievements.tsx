@@ -43,11 +43,15 @@ const Achievements = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.3, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="flex items-start gap-4 p-4 bg-secondary rounded-lg border border-border hover:border-primary/50 transition-colors"
+                  className="flex items-start gap-4 p-4 bg-secondary rounded-lg border border-border hover:border-amber-400 transition-all duration-300 hover-lift hover-glow"
                 >
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <item.icon className="text-primary" />
+                  <motion.div 
+                    whileHover={{ scale: 1.1, rotate: -5 }}
+                  >
+                  <div className="w-10 h-10 rounded-full bg-amber-400/20 flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:bg-amber-400/40">
+                    <item.icon className="text-amber-400" />
                   </div>
+                  </motion.div>
                   <div>
                     <h5 className="font-medium text-foreground">{item.title}</h5>
                     <p className="text-muted-foreground text-sm">{item.desc}</p>
@@ -70,11 +74,14 @@ const Achievements = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.3, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="flex items-center gap-4 p-4 bg-secondary rounded-lg border border-border hover:border-primary/50 transition-colors"
+                  className="flex items-center gap-4 p-4 bg-secondary rounded-lg border border-border hover:border-amber-400 transition-all duration-300 hover-lift hover-glow group"
                 >
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <FaCertificate className="text-primary" />
-                  </div>
+                  <motion.div 
+                    className="w-10 h-10 rounded-full bg-amber-400/20 flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:bg-amber-400/40"
+                    whileHover={{ scale: 1.15, rotate: 5 }}
+                  >
+                    <FaCertificate className="text-amber-400" />
+                  </motion.div>
                   <p className="text-muted-foreground text-sm">{cert}</p>
                 </motion.div>
               ))}

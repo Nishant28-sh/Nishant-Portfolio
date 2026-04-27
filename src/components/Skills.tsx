@@ -94,8 +94,9 @@ const Skills = () => {
               variants={itemVariants}
               onMouseEnter={() => setHoveredSkill(skill.name)}
               onMouseLeave={() => setHoveredSkill(null)}
-              className="flex flex-col items-center cursor-pointer group"
-              whileHover={{ scale: 1.05 }}
+              className="flex flex-col items-center cursor-pointer group hover-lift"
+              whileHover={{ scale: 1.12, rotate: 5 }}
+              whileTap={{ scale: 0.95 }}
             >
               <div className="relative mb-6">
                 {/* Main Skill Circle */}
