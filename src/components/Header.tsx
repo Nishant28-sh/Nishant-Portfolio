@@ -41,7 +41,7 @@ const Header = () => {
           <motion.a 
             whileHover={{ scale: 1.08, y: -2 }}
             whileTap={{ scale: 0.92 }}
-            href="/Nishant Sharma Software Developer Resume.pdf"
+            href="/Nishant_software Developer_resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-1 md:gap-2 text-gray-400 hover:text-amber-400 transition-all duration-300 text-[10px] md:text-sm font-medium uppercase tracking-wider md:tracking-widest hover-lift"

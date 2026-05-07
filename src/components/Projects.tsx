@@ -5,7 +5,7 @@ import { useRef } from 'react';
 
 const projects = [
   {
-    number: '1 of 3',
+    number: '1 of 5',
     title: 'TradeTogether',
     description: 'A real-time barter platform enabling users to trade items with live chat and negotiation features. Built with modern web technologies using React, Node.js, and Socket.io for real-time communication. Cloud deployment on Render ensures reliability and scalability.',
     image: '/Tradetogether_img.png',
@@ -20,7 +20,7 @@ const projects = [
     ]
   },
   {
-    number: '2 of 3',
+    number: '2 of 5',
     title: 'JobNest',
     description: 'A comprehensive job portal connecting recruiters with job seekers through role-based authentication and authorization. Features a robust system for job listings, applications, and recruiter management. Designed with scalability and security in mind for enterprise-level functionality.',
     image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=1200&h=700&fit=crop',
@@ -35,7 +35,7 @@ const projects = [
     ]
   },
   {
-    number: '3 of 3',
+    number: '3 of 5',
     title: 'Personal Portfolio',
     description: 'A modern and interactive portfolio website showcasing my projects, skills, and professional journey. Built with cutting-edge technologies including React, TypeScript, and Framer Motion for smooth animations. Features responsive design, custom cursor effects, and optimized performance.',
     image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1200&h=700&fit=crop',
@@ -48,6 +48,38 @@ const projects = [
       'Custom cursor effects for enhanced user experience',
       'Fully responsive design with modern UI components',
       'SEO optimized with sitemap and robots.txt'
+    ]
+  },
+  {
+    number: '4 of 5',
+    title: 'FlowTrack',
+    description: 'A comprehensive workflow and project tracking application designed to streamline task management and team collaboration. Built with modern technologies to provide real-time updates and intuitive interfaces for managing projects efficiently. Features visual tracking, progress monitoring, and seamless deployment on Vercel for optimal performance.',
+    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=700&fit=crop',
+    github: 'https://github.com/Nishant28-sh/FlowTrack-',
+    live: 'https://flow-track-red.vercel.app/',
+    featured: true,
+    tech: ['React', 'TypeScript', 'Vercel', 'Tailwind CSS'],
+    features: [
+      'Real-time project tracking and task management',
+      'Visual workflow visualization and progress monitoring',
+      'Team collaboration features for seamless coordination',
+      'Fast deployment on Vercel with optimized performance'
+    ]
+  },
+  {
+    number: '5 of 5',
+    title: 'Intellithon 26',
+    description: 'An innovative hackathon event website showcasing creative projects and innovation. Built with modern web technologies to provide a dynamic platform for participants to explore hackathon challenges, team collaborations, and showcase their technical expertise. Deployed on Vercel for fast and reliable access.',
+    image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=700&fit=crop',
+    github: 'https://github.com/Nishant28-sh/Intellithon-26',
+    live: 'https://intellithon-26.vercel.app/',
+    featured: true,
+    tech: ['React', 'TypeScript', 'Vercel', 'Tailwind CSS'],
+    features: [
+      'Dynamic hackathon event showcase and details',
+      'Team and project collaboration management',
+      'Responsive design for all device types',
+      'Fast performance and seamless user experience'
     ]
   }
 ];
